@@ -14,6 +14,31 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   bool _obscureText = true;
 
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  String? _phoneError;
+  String? _passwordError;
+
+  void _validateAndLogin() {
+    String phone = _phoneController.text.trim();
+    String password = _passwordController.text;
+
+    setState(() {
+      if (phone.isEmpty) {
+        _phoneError = "Phone number is required";
+      } else {
+        _phoneError = "Phone number or password is incorrect";
+      }
+
+      if (password.isEmpty) {
+        _passwordError = "Password is required";
+      } else {
+        _passwordError = "Phone number or password is incorrect";
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,18 +92,35 @@ class _LoginState extends State<Login> {
                       color: Colors.grey[200],
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    child: TextField(
-                      keyboardType: TextInputType.phone,
-                      decoration: InputDecoration(
-                        hintText: 'Phone Number',
-                        border: InputBorder.none,
-                        contentPadding: EdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 14,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TextField(
+                          controller: _phoneController,
+                          keyboardType: TextInputType.phone,
+                          decoration: InputDecoration(
+                            hintText: 'Phone Number',
+                            border: InputBorder.none,
+                            contentPadding: EdgeInsets.symmetric(
+                              horizontal: 16,
+                              vertical: 14,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  if (_phoneError != null)
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 16, top: 4),
+                        child: Text(
+                          _phoneError!,
+                          style: TextStyle(color: Colors.red, fontSize: 12),
                         ),
                       ),
                     ),
-                  ),
                   const SizedBox(height: 16),
 
                   // Password Field
@@ -87,31 +129,48 @@ class _LoginState extends State<Login> {
                       color: Colors.grey[200],
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    child: TextField(
-                      obscureText: _obscureText,
-                      decoration: InputDecoration(
-                        hintText: 'Password',
-                        border: InputBorder.none,
-                        contentPadding: EdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 14,
-                        ),
-                        suffixIcon: IconButton(
-                          icon: Icon(
-                            _obscureText
-                                ? Icons.visibility_off
-                                : Icons.visibility,
-                            color: Colors.grey,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TextField(
+                          controller: _passwordController,
+                          obscureText: _obscureText,
+                          decoration: InputDecoration(
+                            hintText: 'Password',
+                            border: InputBorder.none,
+                            contentPadding: EdgeInsets.symmetric(
+                              horizontal: 16,
+                              vertical: 14,
+                            ),
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                _obscureText
+                                    ? Icons.visibility_off
+                                    : Icons.visibility,
+                                color: Colors.grey,
+                              ),
+                              onPressed: () {
+                                setState(() {
+                                  _obscureText = !_obscureText;
+                                });
+                              },
+                            ),
                           ),
-                          onPressed: () {
-                            setState(() {
-                              _obscureText = !_obscureText;
-                            });
-                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                  if (_passwordError != null)
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 16, top: 4),
+                        child: Text(
+                          _passwordError!,
+                          style: TextStyle(color: Colors.red, fontSize: 12),
                         ),
                       ),
                     ),
-                  ),
 
                   // Forget Password
                   Align(
@@ -133,7 +192,7 @@ class _LoginState extends State<Login> {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: _validateAndLogin,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.blue,
                         padding: EdgeInsets.symmetric(vertical: 14),
