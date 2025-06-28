@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:simple_app_ui_flutter/pages/auth/login.dart';
+import 'package:simple_app_ui_flutter/pages/auth/otp_auth.dart';
 
 class Register extends StatefulWidget {
   const Register({super.key});
@@ -102,7 +103,11 @@ class _RegisterState extends State<Register> {
                       ),
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(
+                          context,
+                        ).pushReplacementNamed(OtpAuth.routeName);
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.blue,
                         foregroundColor: Colors.white,

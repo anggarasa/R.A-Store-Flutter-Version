@@ -3,6 +3,7 @@ import 'package:simple_app_ui_flutter/pages/auth/auth_home.dart';
 import 'package:simple_app_ui_flutter/pages/auth/forgot_password.dart';
 import 'package:simple_app_ui_flutter/pages/auth/login.dart';
 import 'package:simple_app_ui_flutter/pages/auth/new_password.dart';
+import 'package:simple_app_ui_flutter/pages/auth/otp_auth.dart';
 import 'package:simple_app_ui_flutter/pages/auth/register.dart';
 
 void main() {
@@ -35,6 +36,8 @@ class MyApp extends StatelessWidget {
             const ForgotPassword(), // This is the route for the Forgot Password page
         NewPassword.routeName: (context) =>
             const NewPassword(), // This is the route for the New Password page
+        OtpAuth.routeName: (context) =>
+            const OtpAuth(), // This is the route for the OTP Verification page
       },
     );
   }
