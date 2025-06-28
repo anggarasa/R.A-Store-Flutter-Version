@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:simple_app_ui_flutter/pages/auth/modal.dart';
 
 class OtpAuth extends StatefulWidget {
   const OtpAuth({super.key});
@@ -128,7 +129,15 @@ class _OtpAuthState extends State<OtpAuth> {
               ),
               SizedBox(height: 20),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    barrierDismissible: false,
+                    builder: (BuildContext context) {
+                      return VerificationDialog();
+                    },
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
                   shape: RoundedRectangleBorder(
@@ -194,4 +203,78 @@ class MailboxPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+}
+
+// Modal Success Verification
+class VerificationDialog extends StatelessWidget {
+  const VerificationDialog({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      elevation: 0,
+      backgroundColor: Colors.transparent,
+      child: contentBox(context),
+    );
+  }
+
+  Widget contentBox(context) {
+    return Container(
+      padding: EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        shape: BoxShape.rectangle,
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          SizedBox(height: 20),
+          Container(
+            height: 70,
+            width: 70,
+            decoration: BoxDecoration(
+              color: Colors.blue[50],
+              shape: BoxShape.circle,
+            ),
+            child: Icon(Icons.check, color: Colors.blue, size: 40),
+          ),
+          SizedBox(height: 15),
+          Text(
+            'Verified!',
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
+          ),
+          SizedBox(height: 10),
+          Text(
+            'Hurrah!! You have successfully\nverified the account',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+          ),
+          SizedBox(height: 20),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.blue,
+              iconColor: Colors.blue,
+              minimumSize: Size(double.infinity, 45),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text(
+              'Browse Home',
+              style: TextStyle(color: Colors.white, fontSize: 16),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
