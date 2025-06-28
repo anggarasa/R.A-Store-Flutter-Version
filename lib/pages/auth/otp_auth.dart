@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:simple_app_ui_flutter/pages/auth/modal.dart';
+import 'package:simple_app_ui_flutter/pages/home/home_page.dart';
 
 class OtpAuth extends StatefulWidget {
   const OtpAuth({super.key});
@@ -266,7 +266,9 @@ class VerificationDialog extends StatelessWidget {
               ),
             ),
             onPressed: () {
-              Navigator.of(context).pop();
+              Navigator.of(
+                context,
+              ).pushNamedAndRemoveUntil(HomePage.routeName, (route) => false);
             },
             child: Text(
               'Browse Home',

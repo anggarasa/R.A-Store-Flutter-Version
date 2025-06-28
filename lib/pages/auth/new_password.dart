@@ -92,9 +92,10 @@ class _NewPasswordState extends State<NewPassword> {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.of(
-                        context,
-                      ).pushReplacementNamed(Login.routeName);
+                      Navigator.of(context).pushNamedAndRemoveUntil(
+                        Login.routeName,
+                        (route) => false,
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue,
