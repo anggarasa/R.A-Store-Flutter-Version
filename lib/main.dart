@@ -5,6 +5,7 @@ import 'package:simple_app_ui_flutter/pages/auth/login.dart';
 import 'package:simple_app_ui_flutter/pages/auth/new_password.dart';
 import 'package:simple_app_ui_flutter/pages/auth/otp_auth.dart';
 import 'package:simple_app_ui_flutter/pages/auth/register.dart';
+import 'package:simple_app_ui_flutter/pages/home/detail_new_item.dart';
 import 'package:simple_app_ui_flutter/pages/home/home_page.dart';
 
 void main() {
@@ -41,6 +42,8 @@ class MyApp extends StatelessWidget {
             const OtpAuth(), // This is the route for the OTP Verification page
         HomePage.routeName: (context) =>
             const HomePage(), // This is the route the Home page
+        DetailNewItems.routeName: (context) =>
+            const DetailNewItems(), // This is the route the Detail New Items page
       },
     );
   }

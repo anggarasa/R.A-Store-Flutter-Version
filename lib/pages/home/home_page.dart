@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:simple_app_ui_flutter/pages/home/detail_new_item.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -34,25 +35,24 @@ class _HomePageState extends State<HomePage> {
                 margin: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
-                  gradient: const LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [Color(0xFF1E88E5), Color(0xFF64B5F6)],
-                  ),
                 ),
                 child: Stack(
                   children: [
-                    Positioned(
-                      right: 0,
-                      bottom: 0,
-                      child: ClipRRect(
-                        borderRadius: const BorderRadius.only(
-                          bottomRight: Radius.circular(16),
-                        ),
-                        // child: _buildFruitImage(
-                        //   150,
-                        //   "assets/images/organic_mix.jpg",
-                        // ),
+                    // Image yang menutupi seluruh container
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: Image.asset(
+                        'assets/images/banner.jpg',
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                        height: double.infinity,
+                      ),
+                    ),
+                    // Overlay gelap
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        color: Color.fromRGBO(0, 0, 0, 0.3), // 0.3 = 30% gelap
                       ),
                     ),
                     Padding(
@@ -152,7 +152,7 @@ class _HomePageState extends State<HomePage> {
               ),
 
               // Our New Items Section
-              const Padding(
+              Padding(
                 padding: EdgeInsets.only(left: 16, right: 16),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -164,11 +164,18 @@ class _HomePageState extends State<HomePage> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text(
-                      "See All",
-                      style: TextStyle(
-                        color: Color(0xFF1E88E5),
-                        fontWeight: FontWeight.w500,
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(
+                          context,
+                        ).pushNamed(DetailNewItems.routeName);
+                      },
+                      child: Text(
+                        "See All",
+                        style: TextStyle(
+                          color: Color(0xFF1E88E5),
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                   ],
@@ -274,13 +281,7 @@ class _HomePageState extends State<HomePage> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black,
-            blurRadius: 8,
-            offset: const Offset(0, 4),
-          ),
-        ],
+        boxShadow: [BoxShadow(color: Colors.black, blurRadius: 1)],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
