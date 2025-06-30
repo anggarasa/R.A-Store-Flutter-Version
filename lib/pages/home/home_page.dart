@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:simple_app_ui_flutter/pages/home/detail_new_item.dart';
+import 'package:simple_app_ui_flutter/pages/home/detail_populer_packs.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -98,7 +99,7 @@ class _HomePageState extends State<HomePage> {
               ),
 
               // Popular Packs Section
-              const Padding(
+              Padding(
                 padding: EdgeInsets.only(left: 16, right: 16, top: 16),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -110,11 +111,18 @@ class _HomePageState extends State<HomePage> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text(
-                      "See All",
-                      style: TextStyle(
-                        color: Color(0xFF1E88E5),
-                        fontWeight: FontWeight.w500,
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(
+                          context,
+                        ).pushNamed(DetailPopulerPacks.routeName);
+                      },
+                      child: Text(
+                        "See All",
+                        style: TextStyle(
+                          color: Color(0xFF1E88E5),
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                   ],
