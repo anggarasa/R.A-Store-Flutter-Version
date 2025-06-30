@@ -9,6 +9,7 @@ import 'package:simple_app_ui_flutter/pages/home/create_pack.dart';
 import 'package:simple_app_ui_flutter/pages/home/detail_new_item.dart';
 import 'package:simple_app_ui_flutter/pages/home/detail_populer_packs.dart';
 import 'package:simple_app_ui_flutter/pages/home/home_page.dart';
+import 'package:simple_app_ui_flutter/pages/home/populer_pack_all.dart';
 
 void main() {
   runApp(const MyApp());
@@ -45,11 +46,13 @@ class MyApp extends StatelessWidget {
         HomePage.routeName: (context) =>
             const HomePage(), // This is the route for the Home page
         DetailNewItems.routeName: (context) =>
-            const DetailNewItems(), // This is the route for the Detail New Items page
-        DetailPopulerPacks.routeName: (context) =>
-            const DetailPopulerPacks(), // This is the route for the Detail Populer Packs page
+            const DetailNewItems(), // This is the route for the All New Items page
+        PopulerPackAll.routeName: (context) =>
+            const PopulerPackAll(), // This is the route for the All Populer Packs page
         CreatePack.routeName: (context) =>
             const CreatePack(), // This is the route for the Create Pack page
+        DetailPopulerPacks.routeName: (context) =>
+            const DetailPopulerPacks(), // This is the route for the Detail Popular Packs page
       },
     );
   }

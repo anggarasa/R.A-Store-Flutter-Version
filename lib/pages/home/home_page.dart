@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:simple_app_ui_flutter/pages/home/detail_new_item.dart';
 import 'package:simple_app_ui_flutter/pages/home/detail_populer_packs.dart';
+import 'package:simple_app_ui_flutter/pages/home/populer_pack_all.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -115,7 +116,7 @@ class _HomePageState extends State<HomePage> {
                       onPressed: () {
                         Navigator.of(
                           context,
-                        ).pushNamed(DetailPopulerPacks.routeName);
+                        ).pushNamed(PopulerPackAll.routeName);
                       },
                       child: Text(
                         "See All",
@@ -139,21 +140,29 @@ class _HomePageState extends State<HomePage> {
                       "Fruits Pack",
                       "12.99",
                       "assets/images/fruits_pack.jpg",
+                      context,
+                      DetailPopulerPacks.routeName,
                     ),
                     _buildProductCard(
                       "Veggie Pack",
                       "9.99",
                       "assets/images/veggle_pack.jpg",
+                      context,
+                      DetailPopulerPacks.routeName,
                     ),
                     _buildProductCard(
                       "Organic Mix",
                       "14.99",
                       "assets/images/organic_mix.jpg",
+                      context,
+                      DetailPopulerPacks.routeName,
                     ),
                     _buildProductCard(
                       "Salad Pack",
                       "8.99",
                       "assets/images/salad_pack.jpg",
+                      context,
+                      DetailPopulerPacks.routeName,
                     ),
                   ],
                 ),
@@ -204,21 +213,29 @@ class _HomePageState extends State<HomePage> {
                       "Fresh Avocado",
                       "3.99",
                       "assets/images/avocado.jpg",
+                      context,
+                      DetailPopulerPacks.routeName,
                     ),
                     _buildProductCard(
                       "Red Apples",
                       "2.49",
                       "assets/images/red_apple.jpg",
+                      context,
+                      DetailPopulerPacks.routeName,
                     ),
                     _buildProductCard(
                       "Blueberries",
                       "4.99",
                       "assets/images/blueberies_pack.jpg",
+                      context,
+                      DetailPopulerPacks.routeName,
                     ),
                     _buildProductCard(
                       "Broccoli",
                       "1.99",
                       "assets/images/brocoli.jpg",
+                      context,
+                      DetailPopulerPacks.routeName,
                     ),
                   ],
                 ),
@@ -282,78 +299,89 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _buildProductCard(String name, String price, String imageUrl) {
-    return Container(
-      width: 160,
-      margin: const EdgeInsets.only(right: 16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [BoxShadow(color: Colors.black, blurRadius: 1)],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ClipRRect(
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(16),
-              topRight: Radius.circular(16),
-            ),
-            child: Container(
-              height: 120,
-              decoration: BoxDecoration(color: Colors.blue),
-              child: Center(
-                child: Image.asset(
-                  imageUrl,
-                  fit: BoxFit.cover,
-                  width: double.infinity,
-                  height: 120,
+  Widget _buildProductCard(
+    String name,
+    String price,
+    String imageUrl,
+    BuildContext context,
+    String route,
+  ) {
+    return InkWell(
+      onTap: () {
+        Navigator.of(context).pushNamed(route);
+      },
+      child: Container(
+        width: 160,
+        margin: const EdgeInsets.only(right: 16),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: [BoxShadow(color: Colors.black, blurRadius: 1)],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ClipRRect(
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(16),
+                topRight: Radius.circular(16),
+              ),
+              child: Container(
+                height: 120,
+                decoration: BoxDecoration(color: Colors.blue),
+                child: Center(
+                  child: Image.asset(
+                    imageUrl,
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                    height: 120,
+                  ),
                 ),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(12),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  name,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
+            Padding(
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    name,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 4),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "\$$price",
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                        color: Color(0xFF1E88E5),
+                  const SizedBox(height: 4),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "\$$price",
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          color: Color(0xFF1E88E5),
+                        ),
                       ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(4),
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF1E88E5),
-                        borderRadius: BorderRadius.circular(8),
+                      Container(
+                        padding: const EdgeInsets.all(4),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF1E88E5),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: const Icon(
+                          Icons.add,
+                          color: Colors.white,
+                          size: 20,
+                        ),
                       ),
-                      child: const Icon(
-                        Icons.add,
-                        color: Colors.white,
-                        size: 20,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
