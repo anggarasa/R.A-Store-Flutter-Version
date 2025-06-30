@@ -12,6 +12,7 @@ import 'package:simple_app_ui_flutter/pages/home/home_page.dart';
 import 'package:simple_app_ui_flutter/pages/home/menu/about_us.dart';
 import 'package:simple_app_ui_flutter/pages/home/menu/faqs.dart';
 import 'package:simple_app_ui_flutter/pages/home/menu/menu.dart';
+import 'package:simple_app_ui_flutter/pages/home/menu/terms_conditions.dart';
 import 'package:simple_app_ui_flutter/pages/home/new_items_all.dart';
 import 'package:simple_app_ui_flutter/pages/home/populer_pack_all.dart';
 
@@ -55,6 +56,8 @@ class MyApp extends StatelessWidget {
             const AboutUs(), // This is the route for the About Us page
         Faqs.routeName: (context) =>
             const Faqs(), // This is the route the for FAQs page
+        TermsConditions.routeName: (context) =>
+            const TermsConditions(), // This is the route for the Terms & Conditions page
         NewItemsAll.routeName: (context) =>
             const NewItemsAll(), // This is the route for the All New Items page
         PopulerPackAll.routeName: (context) =>
