@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:simple_app_ui_flutter/pages/home/detail_new_item.dart';
 import 'package:simple_app_ui_flutter/pages/home/detail_populer_packs.dart';
+import 'package:simple_app_ui_flutter/pages/home/menu/menu.dart';
 import 'package:simple_app_ui_flutter/pages/home/new_items_all.dart';
 import 'package:simple_app_ui_flutter/pages/home/populer_pack_all.dart';
 
@@ -21,6 +22,19 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.grey[50],
       appBar: AppBar(
+        leading: Container(
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            border: Border.all(color: Colors.grey.shade300),
+            color: Colors.grey.shade100,
+          ),
+          child: IconButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed(MenuPage.routeName);
+            },
+            icon: Icon(Icons.menu),
+          ),
+        ),
         title: Text(
           "R.A Store",
           style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
