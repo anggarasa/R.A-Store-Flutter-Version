@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:simple_app_ui_flutter/pages/home/create_pack.dart';
 
 class DetailPopulerPacks extends StatelessWidget {
   const DetailPopulerPacks({super.key});
@@ -93,6 +94,7 @@ class DetailPopulerPacks extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                   onTap: () {
                     // Aksi ketika tombol diklik
+                    Navigator.of(context).pushNamed(CreatePack.routeName);
                   },
                   child: Container(
                     padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),

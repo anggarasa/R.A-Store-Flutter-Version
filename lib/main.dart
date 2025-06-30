@@ -5,6 +5,7 @@ import 'package:simple_app_ui_flutter/pages/auth/login.dart';
 import 'package:simple_app_ui_flutter/pages/auth/new_password.dart';
 import 'package:simple_app_ui_flutter/pages/auth/otp_auth.dart';
 import 'package:simple_app_ui_flutter/pages/auth/register.dart';
+import 'package:simple_app_ui_flutter/pages/home/create_pack.dart';
 import 'package:simple_app_ui_flutter/pages/home/detail_new_item.dart';
 import 'package:simple_app_ui_flutter/pages/home/detail_populer_packs.dart';
 import 'package:simple_app_ui_flutter/pages/home/home_page.dart';
@@ -42,11 +43,13 @@ class MyApp extends StatelessWidget {
         OtpAuth.routeName: (context) =>
             const OtpAuth(), // This is the route for the OTP Verification page
         HomePage.routeName: (context) =>
-            const HomePage(), // This is the route the Home page
+            const HomePage(), // This is the route for the Home page
         DetailNewItems.routeName: (context) =>
-            const DetailNewItems(), // This is the route the Detail New Items page
+            const DetailNewItems(), // This is the route for the Detail New Items page
         DetailPopulerPacks.routeName: (context) =>
-            const DetailPopulerPacks(), // This is the route the Detail Populer Packs page
+            const DetailPopulerPacks(), // This is the route for the Detail Populer Packs page
+        CreatePack.routeName: (context) =>
+            const CreatePack(), // This is the route for the Create Pack page
       },
     );
   }
