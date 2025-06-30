@@ -9,6 +9,7 @@ import 'package:simple_app_ui_flutter/pages/home/create_pack.dart';
 import 'package:simple_app_ui_flutter/pages/home/detail_new_item.dart';
 import 'package:simple_app_ui_flutter/pages/home/detail_populer_packs.dart';
 import 'package:simple_app_ui_flutter/pages/home/home_page.dart';
+import 'package:simple_app_ui_flutter/pages/home/new_items_all.dart';
 import 'package:simple_app_ui_flutter/pages/home/populer_pack_all.dart';
 
 void main() {
@@ -45,14 +46,16 @@ class MyApp extends StatelessWidget {
             const OtpAuth(), // This is the route for the OTP Verification page
         HomePage.routeName: (context) =>
             const HomePage(), // This is the route for the Home page
-        DetailNewItems.routeName: (context) =>
-            const DetailNewItems(), // This is the route for the All New Items page
+        NewItemsAll.routeName: (context) =>
+            const NewItemsAll(), // This is the route for the All New Items page
         PopulerPackAll.routeName: (context) =>
             const PopulerPackAll(), // This is the route for the All Populer Packs page
         CreatePack.routeName: (context) =>
             const CreatePack(), // This is the route for the Create Pack page
         DetailPopulerPacks.routeName: (context) =>
             const DetailPopulerPacks(), // This is the route for the Detail Popular Packs page
+        DetailNewItem.routeName: (context) =>
+            const DetailNewItem(), // This is the route for the Detail New Item page
       },
     );
   }

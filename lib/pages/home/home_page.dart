@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:simple_app_ui_flutter/pages/home/detail_new_item.dart';
 import 'package:simple_app_ui_flutter/pages/home/detail_populer_packs.dart';
+import 'package:simple_app_ui_flutter/pages/home/new_items_all.dart';
 import 'package:simple_app_ui_flutter/pages/home/populer_pack_all.dart';
 
 class HomePage extends StatefulWidget {
@@ -183,9 +184,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     TextButton(
                       onPressed: () {
-                        Navigator.of(
-                          context,
-                        ).pushNamed(DetailNewItems.routeName);
+                        Navigator.of(context).pushNamed(NewItemsAll.routeName);
                       },
                       child: Text(
                         "See All",
@@ -214,21 +213,21 @@ class _HomePageState extends State<HomePage> {
                       "3.99",
                       "assets/images/avocado.jpg",
                       context,
-                      DetailPopulerPacks.routeName,
+                      DetailNewItem.routeName,
                     ),
                     _buildProductCard(
                       "Red Apples",
                       "2.49",
                       "assets/images/red_apple.jpg",
                       context,
-                      DetailPopulerPacks.routeName,
+                      DetailNewItem.routeName,
                     ),
                     _buildProductCard(
                       "Blueberries",
                       "4.99",
                       "assets/images/blueberies_pack.jpg",
                       context,
-                      DetailPopulerPacks.routeName,
+                      DetailNewItem.routeName,
                     ),
                     _buildProductCard(
                       "Broccoli",

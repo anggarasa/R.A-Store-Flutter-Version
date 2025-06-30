@@ -123,7 +123,7 @@ class _DetailPopulerPacksState extends State<DetailPopulerPacks> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Bundle Pack',
+                        'Veggle Pack',
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
@@ -250,7 +250,7 @@ class _DetailPopulerPacksState extends State<DetailPopulerPacks> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Cabbage',
+                                    'Brocoli',
                                     style: TextStyle(
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -259,7 +259,7 @@ class _DetailPopulerPacksState extends State<DetailPopulerPacks> {
                               ),
                               Spacer(),
                               Text(
-                                '2 Kg',
+                                '2 pcs',
                                 style: TextStyle(color: Colors.grey[600]),
                               ),
                             ],
