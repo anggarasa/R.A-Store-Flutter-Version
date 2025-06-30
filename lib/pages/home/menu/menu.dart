@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:simple_app_ui_flutter/pages/auth/auth_home.dart';
 import 'package:simple_app_ui_flutter/pages/home/menu/about_us.dart';
+import 'package:simple_app_ui_flutter/pages/home/menu/faqs.dart';
 
 class MenuPage extends StatelessWidget {
   const MenuPage({super.key});
@@ -31,7 +32,9 @@ class MenuPage extends StatelessWidget {
 
             // FAQs
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).pushNamed(Faqs.routeName);
+              },
               borderRadius: BorderRadius.circular(10),
               child: MenuList(name: "FAQs"),
             ),
