@@ -1,11 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:simple_app_ui_flutter/pages/auth/login.dart';
 // import 'package:simple_app_ui_flutter/pages/auth/login.dart';
 // import 'package:simple_app_ui_flutter/pages/auth/register.dart';
 
-class AuthHome extends StatelessWidget {
-  const AuthHome({super.key});
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
 
-  static const String routeName = '/auth/home';
+  static const String routeName = '/auth/splash-screen';
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+
+    Future.delayed(Duration(seconds: 5), () {
+      // ignore: use_build_context_synchronously
+      Navigator.of(context).pop();
+      // ignore: use_build_context_synchronously
+      Navigator.of(context).pushNamed(Login.routeName);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:simple_app_ui_flutter/pages/auth/auth_home.dart';
+import 'package:simple_app_ui_flutter/pages/auth/splash_screen.dart';
 import 'package:simple_app_ui_flutter/pages/auth/forgot_password.dart';
 import 'package:simple_app_ui_flutter/pages/auth/login.dart';
 import 'package:simple_app_ui_flutter/pages/auth/new_password.dart';
@@ -34,10 +34,10 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
       ),
-      home: const AuthHome(),
+      home: const SplashScreen(),
       routes: {
-        AuthHome.routeName: (context) =>
-            const AuthHome(), // This is the route for the AuthHome page
+        SplashScreen.routeName: (context) =>
+            const SplashScreen(), // This is the route for the AuthHome page
         Register.routeName: (context) =>
             const Register(), // This is the route for the Register page
         Login.routeName: (context) =>
