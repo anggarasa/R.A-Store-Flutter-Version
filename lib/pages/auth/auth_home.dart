@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:simple_app_ui_flutter/pages/auth/login.dart';
-import 'package:simple_app_ui_flutter/pages/auth/register.dart';
+// import 'package:simple_app_ui_flutter/pages/auth/login.dart';
+// import 'package:simple_app_ui_flutter/pages/auth/register.dart';
 
 class AuthHome extends StatelessWidget {
   const AuthHome({super.key});
@@ -10,111 +10,54 @@ class AuthHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Colors.white,
-        child: Stack(
-          children: [
-            // Background image
-            Positioned.fill(
-              child: Container(
-                decoration: const BoxDecoration(color: Colors.white),
-              ),
+      backgroundColor: const Color(0xFFFFF3F4),
+      body: Stack(
+        children: [
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: Image.asset('assets/images/component-top.png'),
+          ),
+
+          // Decorative elements - Bottom
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Image.asset('assets/images/component-bottom.png'),
+          ),
+
+          // Main content
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Crown icon
+                Container(
+                  margin: const EdgeInsets.only(bottom: 20),
+                  child: Image.asset('assets/images/Logo.png'),
+                ),
+
+                const SizedBox(height: 10),
+
+                // Description text
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 40),
+                  child: Text(
+                    'Nutrisi Spesifik. Hidup yang Lebih Sehat untuk Hewan Kesayangan Anda',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Color(0xFFDC143C),
+                      height: 1.5,
+                    ),
+                  ),
+                ),
+              ],
             ),
-
-            // Content
-            SafeArea(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  const SizedBox(height: 30),
-
-                  // Welcome text
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          'Welcome to our',
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
-                        ),
-                        Text(
-                          'R.A Store',
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.blue[700],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-
-                  // Grocery image
-                  Expanded(
-                    child: Center(
-                      child: Image.asset(
-                        'assets/images/bg_auth_home.jpg', // You need to add this image to your assets
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                  ),
-
-                  // Bottom buttons
-                  Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Column(
-                      children: [
-                        ElevatedButton(
-                          onPressed: () {
-                            Navigator.of(
-                              context,
-                            ).pushReplacementNamed(Login.routeName);
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.blue,
-                            minimumSize: const Size(double.infinity, 50),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                          ),
-                          child: const Text(
-                            'Continue with Email or Phone',
-                            style: TextStyle(color: Colors.white, fontSize: 16),
-                          ),
-                        ),
-                        const SizedBox(height: 15),
-                        OutlinedButton(
-                          onPressed: () {
-                            Navigator.of(
-                              context,
-                            ).pushReplacementNamed(Register.routeName);
-                          },
-                          style: OutlinedButton.styleFrom(
-                            foregroundColor: Colors.black,
-                            minimumSize: const Size(double.infinity, 50),
-                            side: const BorderSide(color: Colors.grey),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                          ),
-                          child: const Text(
-                            'Create an account',
-                            style: TextStyle(fontSize: 16),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

@@ -22,18 +22,11 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.grey[50],
       appBar: AppBar(
-        leading: Container(
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(color: Colors.grey.shade300),
-            color: Colors.grey.shade100,
-          ),
-          child: IconButton(
-            onPressed: () {
-              Navigator.of(context).pushNamed(MenuPage.routeName);
-            },
-            icon: Icon(Icons.menu),
-          ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pushNamed(MenuPage.routeName);
+          },
+          icon: Icon(Icons.menu),
         ),
         title: Text(
           "R.A Store",
